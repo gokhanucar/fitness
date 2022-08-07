@@ -1,4 +1,7 @@
-<?php require_once "utils/config.php" ?>
+<?php
+require_once "utils/config.php";
+require_once "utils/authorization.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">

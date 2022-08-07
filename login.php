@@ -1,4 +1,8 @@
-<?php require_once "utils/config.php" ?>
+<?php
+require_once "utils/config.php";
+require_once "functions/authentication.php";
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +20,8 @@
     <link rel="stylesheet" href="assets/css/nprogress.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/custom.min.css">
+    <link rel="stylesheet" href="assets/css/pnotify.css">
+    <link rel="stylesheet" href="assets/css/pnotify.buttons.css">
 </head>
 
 <body class="login">
@@ -26,16 +32,16 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form>
+                    <form method="POST">
                         <h1>Login Form</h1>
                         <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
+                            <input type="email" name="email" class="form-control" placeholder="Email" maxlength="100" required="" />
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
+                            <input type="password" name="password" class="form-control" placeholder="Password" maxlength="50" required="" />
                         </div>
                         <div>
-                            <a class="btn btn-default submit" href="index.html">Log in</a>
+                            <button onclick="test()" type="submit" name="login" value="login" class="btn btn-default submit">Log in</button>
                             <a class="reset_pass" href="#">Lost your password?</a>
                         </div>
 
@@ -60,19 +66,22 @@
 
             <div id="register" class="animate form registration_form">
                 <section class="login_content">
-                    <form>
+                    <form method="POST">
                         <h1>Create Account</h1>
                         <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
+                            <input type="email" name="email" class="form-control" placeholder="Email" maxlength="100" required="" />
                         </div>
                         <div>
-                            <input type="email" class="form-control" placeholder="Email" required="" />
+                            <input type="text" name="name" class="form-control" placeholder="Name" maxlength="50" required="" />
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
+                            <input type="text" name="surname" class="form-control" placeholder="Surname" maxlength="50" required="" />
                         </div>
                         <div>
-                            <a class="btn btn-default submit" href="index.html">Submit</a>
+                            <input type="password" name="password" class="form-control" placeholder="Password" maxlength="50" required="" />
+                        </div>
+                        <div>
+                            <button type="submit" name="register" value="register" class="btn btn-default submit">Submit</button>
                         </div>
 
                         <div class="clearfix"></div>
@@ -95,6 +104,22 @@
             </div>
         </div>
     </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/pnotify.js"></script>
+    <script src="assets/js/pnotify.buttons.js"></script>
+
+    <script>
+        function test() {
+            new PNotify({
+                title: 'Oh No!',
+                text: 'Something terrible happened.',
+                type: 'info',
+                styling: 'bootstrap3',
+                addclass: 'dark'
+            });
+        }
+    </script>
 </body>
 
 </html>
