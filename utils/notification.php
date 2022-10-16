@@ -14,8 +14,10 @@ function get_notification()
     if (isset($_SESSION['notification'])) {
         $notification = $_SESSION['notification'];
         unset($_SESSION['notification']);
-        return $notification;
+        return json_encode($notification);
     }
+
+    return json_encode(false);
 }
 
 ?>
